@@ -1,0 +1,8 @@
+name: Job
+main: xyz.jungha.job.Job
+version: 1.0.0
+api-version: 1.21
+
+commands:
+  직업:
+    description: 직업 관련 명령어
