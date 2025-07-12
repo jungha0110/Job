@@ -69,6 +69,17 @@ public final class JobAPI {
     }
 
     /**
+     * 플레이어의 직업 최대 경험치를 가져옵니다.
+     * @param player 플레이어
+     * @param job 직업
+     * @return 최대 경험치
+     */
+    public static int getJobMaxExp(OfflinePlayer player, Jobs job) {
+        if (!jobService().hasJobData(player)) return 0;
+        return Jobs.getExpRequiredForLevel(jobService.getJobLevel(player, job) + 1);
+    }
+
+    /**
      * 플레이어의 직업 경험치를 설정합니다.
      * @param player 플레이어
      * @param job 직업
