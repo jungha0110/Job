@@ -35,7 +35,7 @@ public class ExpCommand implements SubCommand {
 
     @Override
     public boolean hasPermission(CommandSender sender) {
-        return true; // 권한은 각 서브 커맨드에서 처리
+        return true;
     }
 
     @Override
