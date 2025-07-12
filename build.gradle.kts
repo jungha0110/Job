@@ -1,6 +1,5 @@
 plugins {
   `java-library`
-  id("io.papermc.paperweight.userdev") version "2.0.0-beta.17"
   id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
@@ -15,7 +14,8 @@ repositories {
   mavenCentral()
   maven {
     url = uri("https://jitpack.io")
-    url = uri("https://repo.extendedclip.com/releases/")
+    url = uri("https://repo.papermc.io/repository/maven-public/")
+
   }
 }
 
@@ -23,9 +23,7 @@ dependencies {
   compileOnly("org.projectlombok:lombok:1.18.30")
   annotationProcessor("org.projectlombok:lombok:1.18.30")
 
-  compileOnly("me.clip:placeholderapi:2.11.6")
-
-  paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
+  compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 }
 
 tasks {
