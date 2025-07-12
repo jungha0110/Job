@@ -4,12 +4,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import xyz.jungha.job.Job;
 import xyz.jungha.job.enums.Jobs;
+import xyz.jungha.job.service.JobService;
 
 import java.util.Arrays;
 
 public class PlayerJoinListener implements Listener {
+
+    private final JobService jobService;
+
+    public PlayerJoinListener(JobService jobService) {
+        this.jobService = jobService;
+    }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -17,7 +23,7 @@ public class PlayerJoinListener implements Listener {
         if (!player.hasPlayedBefore()) {
             Arrays.stream(Jobs.values())
                     .filter(job -> job != Jobs.NONE)
-                    .forEach(job -> Job.getInstance().getJobRepo().setJobLevel(player, job, 1));
+                    .forEach(job -> jobService.setJobLevel(player, job, 1));
         }
     }
 }

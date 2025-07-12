@@ -3,7 +3,7 @@ package xyz.jungha.job;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.jungha.job.command.JobCommand;
-import xyz.jungha.job.listener.PlayerJoinListener;
+import xyz.jungha.job.event.PlayerJoinListener;
 import xyz.jungha.job.repository.JobRepository;
 import xyz.jungha.job.service.JobService;
 

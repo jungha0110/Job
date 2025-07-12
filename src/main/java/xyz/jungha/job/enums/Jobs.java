@@ -35,7 +35,7 @@ public enum Jobs {
     public static int getExpRequiredForLevel(int level) {
         if (level < 1) return 0;
         if (level < 20) {
-            return 100 + (level * (level + 1) * 1);
+            return 100 + (level * (level + 1));
         } else if (level < 50) {
             return 100 + 420 + (int)(level * (level + 1) * 1.5);
         } else {
