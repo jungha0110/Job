@@ -47,7 +47,7 @@ public class GetExpCommand implements SubCommand {
         sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <green>" + player.getName() + "<white>님의 직업 경험치"));
         Arrays.stream(Jobs.values())
                 .filter(job -> job != Jobs.NONE)
-                .map(job -> String.format("ㄴ <%s>%s <white>: %d / %d (레벨 %d)", getJobColor(job), job.getDisplayName(), jobService.getJobExp(player, job), Jobs.getExpRequiredForLevel(jobService.getJobLevel(player, job) + 1), jobService.getJobLevel(player, job)))
+                .map(job -> String.format("ㄴ <%s>%s <white>: %.2f / %.2f (레벨 %d)", getJobColor(job), job.getDisplayName(), jobService.getJobExp(player, job), jobService.getJobMaxExp(player, job), jobService.getJobLevel(player, job)))
                 .forEach(message -> sender.sendMessage(MINI_MESSAGE.deserialize(message)));
         return true;
     }

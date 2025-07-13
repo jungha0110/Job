@@ -27,7 +27,7 @@ public class SubtractCommand extends LevelSubCommand {
     }
 
     @Override
-    protected boolean isValidAmount(int amount, CommandSender sender) {
+    protected boolean isValidAmount(double amount, CommandSender sender) {
         if (amount <= 0) {
             sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <red>감소량은 1 이상이어야 합니다."));
             return false;
@@ -36,12 +36,12 @@ public class SubtractCommand extends LevelSubCommand {
     }
 
     @Override
-    protected void applyChange(OfflinePlayer player, Jobs job, int amount) {
-        jobService.subtractJobLevel(player, job, amount);
+    protected void applyChange(OfflinePlayer player, Jobs job, double amount) {
+        jobService.subtractJobLevel(player, job, (int) amount);
     }
 
     @Override
-    protected String getSuccessMessage(OfflinePlayer player, Jobs job, int amount) {
-        return String.format("[<gold>직업<white>] <green>%s</green>님의 <yellow>%s</yellow> 직업 레벨을 <gold>-%d</gold> 만큼 감소시켰습니다.", player.getName(), job.getDisplayName(), amount);
+    protected String getSuccessMessage(OfflinePlayer player, Jobs job, double amount) {
+        return String.format("[<gold>직업<white>] <green>%s</green>님의 <yellow>%s</yellow> 직업 레벨을 <gold>-%d</gold> 만큼 감소시켰습니다.", player.getName(), job.getDisplayName(), (int) amount);
     }
 }

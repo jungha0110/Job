@@ -32,7 +32,7 @@ public enum Jobs {
         return BY_DISPLAY_NAME.get(name);
     }
 
-    public static int getExpRequiredForLevel(int level) {
+    public static double getExpRequiredForLevel(int level) {
         if (level < 1) return 0;
         if (level < 20) {
             return 100 + (level * (level + 1));

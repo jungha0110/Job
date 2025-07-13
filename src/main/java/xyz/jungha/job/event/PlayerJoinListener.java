@@ -20,7 +20,7 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if (!player.hasPlayedBefore()) {
+        if (!jobService.hasJobData(player)) {
             Arrays.stream(Jobs.values())
                     .filter(job -> job != Jobs.NONE)
                     .forEach(job -> jobService.setJobLevel(player, job, 1));

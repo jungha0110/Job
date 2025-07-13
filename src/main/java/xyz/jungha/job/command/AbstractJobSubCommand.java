@@ -51,11 +51,11 @@ public abstract class AbstractJobSubCommand implements SubCommand {
         return true;
     }
 
-    protected abstract boolean isValidAmount(int amount, CommandSender sender);
+    protected abstract boolean isValidAmount(double amount, CommandSender sender);
 
-    protected abstract void applyChange(OfflinePlayer player, Jobs job, int amount);
+    protected abstract void applyChange(OfflinePlayer player, Jobs job, double amount);
 
-    protected abstract String getSuccessMessage(OfflinePlayer player, Jobs job, int amount);
+    protected abstract String getSuccessMessage(OfflinePlayer player, Jobs job, double amount);
 
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {

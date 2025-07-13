@@ -1,0 +1,27 @@
+# 요리 경험치 ) 기본값 0.3
+chef-exp: 0.3
+
+# 광부 경험치
+miner-exp:
+  stone: 0.15
+  deepslate: 0.15
+  netherrack: 0.03
+  copper_ore: 4
+  deepslate_copper_ore: 4
+  iron_ore: 6
+  deepslate_iron_ore: 6
+  coal_ore: 4
+  deepslate_coal_ore: 4
+  gold_ore: 10
+  deepslate_gold_ore: 10
+  redstone_ore: 10
+  deepslate_redstone_ore: 10
+  lapis_ore: 10
+  deepslate_lapis_ore: 10
+  emerald_ore: 50
+  deepslate_emerald_ore: 50
+  diamond_ore: 15
+  deepslate_diamond_ore: 15
+  nether_quartz_ore: 2
+  ancient_debris: 40
+

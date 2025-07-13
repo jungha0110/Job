@@ -1,15 +1,19 @@
 package xyz.jungha.job.service;
 
 import org.bukkit.OfflinePlayer;
+import org.bukkit.configuration.file.FileConfiguration;
+import xyz.jungha.job.Job;
 import xyz.jungha.job.enums.Jobs;
 import xyz.jungha.job.repository.JobRepository;
 
 public class JobService {
 
     private final JobRepository jobRepository;
+    private final Job plugin;
 
-    public JobService(JobRepository jobRepository) {
-        this.jobRepository = jobRepository;
+    public JobService(Job plugin) {
+        this.jobRepository = plugin.getJobRepo();
+        this.plugin = plugin;
     }
 
     public int getJobLevel(OfflinePlayer player, Jobs job) {
@@ -28,19 +32,23 @@ public class JobService {
         jobRepository.subtractJobLevel(player, job, amount);
     }
 
-    public int getJobExp(OfflinePlayer player, Jobs job) {
+    public double getJobExp(OfflinePlayer player, Jobs job) {
         return jobRepository.getJobExp(player, job);
     }
 
-    public void setJobExp(OfflinePlayer player, Jobs job, int exp) {
+    public double getJobMaxExp(OfflinePlayer player, Jobs job) {
+        return jobRepository.getJobMaxExp(player, job);
+    }
+
+    public void setJobExp(OfflinePlayer player, Jobs job, double exp) {
         jobRepository.setJobExp(player, job, exp);
     }
 
-    public void addJobExp(OfflinePlayer player, Jobs job, int amount) {
+    public void addJobExp(OfflinePlayer player, Jobs job, double amount) {
         jobRepository.addJobExp(player, job, amount);
     }
 
-    public void subtractJobExp(OfflinePlayer player, Jobs job, int amount) {
+    public void subtractJobExp(OfflinePlayer player, Jobs job, double amount) {
         jobRepository.subtractJobExp(player, job, amount);
     }
 
@@ -51,4 +59,13 @@ public class JobService {
     public void saveJobData() {
         jobRepository.saveConfig();
     }
+
+    public FileConfiguration getConfig() {
+        return plugin.getConfig();
+    }
+
+    public void saveConfig() {
+        plugin.saveConfig();
+    }
 }
+

@@ -13,11 +13,11 @@ public abstract class ExpSubCommand extends AbstractJobSubCommand {
     }
 
     @Override
-    protected abstract boolean isValidAmount(int amount, CommandSender sender);
+    protected abstract boolean isValidAmount(double amount, CommandSender sender);
 
     @Override
-    protected abstract void applyChange(OfflinePlayer player, Jobs job, int amount);
+    protected abstract void applyChange(OfflinePlayer player, Jobs job, double amount);
 
     @Override
-    protected abstract String getSuccessMessage(OfflinePlayer player, Jobs job, int amount);
+    protected abstract String getSuccessMessage(OfflinePlayer player, Jobs job, double amount);
 }

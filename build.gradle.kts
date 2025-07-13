@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "xyz.jungha.job"
-version = "1.0.1"
+version = "1.0.3"
 
 java {
   toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -15,13 +15,14 @@ repositories {
   maven {
     url = uri("https://jitpack.io")
     url = uri("https://repo.papermc.io/repository/maven-public/")
-
   }
 }
 
 dependencies {
   compileOnly("org.projectlombok:lombok:1.18.30")
   annotationProcessor("org.projectlombok:lombok:1.18.30")
+
+  implementation(files("libs/AddCook-3.7.8.jar"))
 
   compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 }
@@ -36,7 +37,7 @@ tasks {
   }
 
   shadowJar {
-    archiveFileName.set("Job.jar")
+    archiveFileName.set("Job-${version}.jar")
     destinationDirectory.set(File("C:\\Users\\sjh05\\Documents\\서버\\1.21.4\\plugins"))
   }
 

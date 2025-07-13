@@ -1,5 +1,6 @@
 package xyz.jungha.job;
 
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import xyz.jungha.job.enums.Jobs;
 import xyz.jungha.job.service.JobService;
@@ -9,7 +10,9 @@ public final class JobAPI {
     private static JobService jobService;
 
     private static JobService jobService() {
-        if (jobService == null) jobService = Job.getInstance().getJobService();
+        if (jobService == null) {
+            jobService = Bukkit.getServicesManager().load(JobService.class);
+        }
         return jobService;
     }
 
@@ -63,7 +66,7 @@ public final class JobAPI {
      * @param job 직업
      * @return 경험치
      */
-    public static int getJobExp(OfflinePlayer player, Jobs job) {
+    public static double getJobExp(OfflinePlayer player, Jobs job) {
         if (!jobService().hasJobData(player)) return 0;
         return jobService().getJobExp(player, job);
     }
@@ -74,9 +77,9 @@ public final class JobAPI {
      * @param job 직업
      * @return 최대 경험치
      */
-    public static int getJobMaxExp(OfflinePlayer player, Jobs job) {
+    public static double getJobMaxExp(OfflinePlayer player, Jobs job) {
         if (!jobService().hasJobData(player)) return 0;
-        return Jobs.getExpRequiredForLevel(jobService.getJobLevel(player, job) + 1);
+        return jobService.getJobMaxExp(player, job);
     }
 
     /**
@@ -85,7 +88,7 @@ public final class JobAPI {
      * @param job 직업
      * @param exp 경험치
      */
-    public static void setJobExp(OfflinePlayer player, Jobs job, int exp) {
+    public static void setJobExp(OfflinePlayer player, Jobs job, double exp) {
         if (!jobService().hasJobData(player)) return;
         jobService().setJobExp(player, job, exp);
     }
@@ -96,7 +99,7 @@ public final class JobAPI {
      * @param job 직업
      * @param amount 추가량
      */
-    public static void addJobExp(OfflinePlayer player, Jobs job, int amount) {
+    public static void addJobExp(OfflinePlayer player, Jobs job, double amount) {
         if (!jobService().hasJobData(player)) return;
         jobService().addJobExp(player, job, amount);
     }
@@ -107,7 +110,7 @@ public final class JobAPI {
      * @param job 직업
      * @param amount 감소량
      */
-    public static void subtractJobExp(OfflinePlayer player, Jobs job, int amount) {
+    public static void subtractJobExp(OfflinePlayer player, Jobs job, double amount) {
         if (!jobService().hasJobData(player)) return;
         jobService().subtractJobExp(player, job, amount);
     }
