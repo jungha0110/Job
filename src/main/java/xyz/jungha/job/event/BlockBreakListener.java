@@ -28,7 +28,7 @@ public class BlockBreakListener implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         String blockType = event.getBlock().getType().name();
-        Double exp = minerExpMap.get(blockType);
+        Double exp = minerExpMap.getOrDefault(blockType, 0.0);
         if (exp != null) {
             jobService.addJobExp(event.getPlayer(), Jobs.MINER, exp);
         }

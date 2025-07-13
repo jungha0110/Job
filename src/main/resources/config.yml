@@ -25,3 +25,25 @@ miner-exp:
   nether_quartz_ore: 2
   ancient_debris: 40
 
+# 농부 경험치
+farmer-exp:
+  addcrop_tomato: 1
+  addcrop_cabbage: 1
+  addcrop_pepper: 1
+  addcrop_corn: 1
+  addcrop_korea_cabbage: 1
+  addcrop_garlic: 1
+  addcrop_egg_plant: 1
+  addcrop_rice: 1
+  addcrop_broccoli: 1
+  addcrop_sweet_potato: 1
+  addcrop_bean: 1
+  addcrop_green_onion: 1
+  addcrop_turnip: 1
+  addcrop_paprika: 1
+  addcrop_artichoke: 1
+  addcrop_radish: 1
+  addcrop_parsley: 1
+  addcrop_onion: 1
+  addcrop_asparagus: 1
+  addcrop_wild_ginseng: 1

@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "xyz.jungha.job"
-version = "1.0.3"
+version = "1.0.4"
 
 java {
   toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -14,15 +14,21 @@ repositories {
   mavenCentral()
   maven {
     url = uri("https://jitpack.io")
+  }
+  maven {
     url = uri("https://repo.papermc.io/repository/maven-public/")
   }
+  maven {
+    url = uri("https://repo.momirealms.net/releases/")
+  }
 }
+
 
 dependencies {
   compileOnly("org.projectlombok:lombok:1.18.30")
   annotationProcessor("org.projectlombok:lombok:1.18.30")
-
-  implementation(files("libs/AddCook-3.7.8.jar"))
+  compileOnly("net.momirealms:custom-crops:3.6.40")
+  implementation(fileTree("libs") { include("*.jar") })
 
   compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 }

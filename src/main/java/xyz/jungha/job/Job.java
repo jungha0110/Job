@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.jungha.job.command.JobCommand;
 import xyz.jungha.job.event.BlockBreakListener;
 import xyz.jungha.job.event.CookCompleteListener;
+import xyz.jungha.job.event.CropBreakListener;
 import xyz.jungha.job.event.PlayerJoinListener;
 import xyz.jungha.job.repository.JobRepository;
 import xyz.jungha.job.service.JobService;
@@ -34,7 +35,8 @@ public class Job extends JavaPlugin {
         registerEvents(
                 new PlayerJoinListener(jobService),
                 new CookCompleteListener(jobService),
-                new BlockBreakListener(jobService)
+                new BlockBreakListener(jobService),
+                new CropBreakListener(jobService)
         );
     }
 
