@@ -1,5 +1,6 @@
 package xyz.jungha.job.event;
 
+import net.momirealms.customfishing.api.event.FishingResultEvent;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -32,7 +32,8 @@ public class ReloadCommand implements SubCommand {
 
     @Override
     public boolean execute(CommandSender sender, String[] args) {
-        jobService.saveJobData();
+        jobService.reloadJobData();
+        jobService.loadConfig();
         sender.sendMessage(miniMessage.deserialize("[<gold>직업<white>] <green>콘피그를 리로드했습니다."));
         return true;
     }

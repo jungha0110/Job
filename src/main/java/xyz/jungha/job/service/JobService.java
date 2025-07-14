@@ -60,12 +60,20 @@ public class JobService {
         jobRepository.saveConfig();
     }
 
+    public void reloadJobData() {
+        jobRepository.loadConfig();
+    }
+
     public FileConfiguration getConfig() {
         return plugin.getConfig();
     }
 
     public void saveConfig() {
         plugin.saveConfig();
+    }
+
+    public void loadConfig() {
+        plugin.reloadConfig();
     }
 }
 
