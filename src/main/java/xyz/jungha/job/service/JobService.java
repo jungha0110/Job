@@ -68,10 +68,6 @@ public class JobService {
         return plugin.getConfig();
     }
 
-    public void saveConfig() {
-        plugin.saveConfig();
-    }
-
     public void loadConfig() {
         plugin.reloadConfig();
     }
