@@ -56,10 +56,6 @@ public class JobService {
         return jobRepository.contains(player);
     }
 
-    public void saveJobData() {
-        jobRepository.saveConfig();
-    }
-
     public void reloadJobData() {
         jobRepository.loadConfig();
     }
