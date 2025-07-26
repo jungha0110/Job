@@ -1,19 +1,15 @@
 package xyz.jungha.job;
 
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import xyz.jungha.job.enums.Jobs;
-import xyz.jungha.job.service.JobService;
 
 public final class JobAPI {
 
-    private static JobService jobService;
+    private static Job plugin;
 
-    private static JobService jobService() {
-        if (jobService == null) {
-            jobService = Bukkit.getServicesManager().load(JobService.class);
-        }
-        return jobService;
+    private static Job plugin() {
+        if (plugin == null) plugin = Job.getInstance();
+        return plugin;
     }
 
     /**
@@ -23,8 +19,8 @@ public final class JobAPI {
      * @return 레벨
      */
     public static int getJobLevel(OfflinePlayer player, Jobs job) {
-        if (!jobService().hasJobData(player)) return 0;
-        return jobService().getJobLevel(player, job);
+        if (!plugin().getJobService().hasJobData(player)) return 0;
+        return plugin().getJobService().getJobLevel(player, job);
     }
 
     /**
@@ -34,8 +30,8 @@ public final class JobAPI {
      * @param level 레벨
      */
     public static void setJobLevel(OfflinePlayer player, Jobs job, int level) {
-        if (!jobService().hasJobData(player)) return;
-        jobService().setJobLevel(player, job, level);
+        if (!plugin().getJobService().hasJobData(player)) return;
+        plugin().getJobService().setJobLevel(player, job, level);
     }
 
     /**
@@ -45,8 +41,8 @@ public final class JobAPI {
      * @param amount 추가량
      */
     public static void addJobLevel(OfflinePlayer player, Jobs job, int amount) {
-        if (!jobService().hasJobData(player)) return;
-        jobService().addJobLevel(player, job, amount);
+        if (!plugin().getJobService().hasJobData(player)) return;
+        plugin().getJobService().addJobLevel(player, job, amount);
     }
 
     /**
@@ -56,8 +52,8 @@ public final class JobAPI {
      * @param amount 감소량
      */
     public static void subtractJobLevel(OfflinePlayer player, Jobs job, int amount) {
-        if (!jobService().hasJobData(player)) return;
-        jobService().subtractJobLevel(player, job, amount);
+        if (!plugin().getJobService().hasJobData(player)) return;
+        plugin().getJobService().subtractJobLevel(player, job, amount);
     }
 
     /**
@@ -67,8 +63,8 @@ public final class JobAPI {
      * @return 경험치
      */
     public static double getJobExp(OfflinePlayer player, Jobs job) {
-        if (!jobService().hasJobData(player)) return 0;
-        return jobService().getJobExp(player, job);
+        if (!plugin().getJobService().hasJobData(player)) return 0;
+        return plugin().getJobService().getJobExp(player, job);
     }
 
     /**
@@ -78,8 +74,8 @@ public final class JobAPI {
      * @return 최대 경험치
      */
     public static double getJobMaxExp(OfflinePlayer player, Jobs job) {
-        if (!jobService().hasJobData(player)) return 0;
-        return jobService.getJobMaxExp(player, job);
+        if (!plugin().getJobService().hasJobData(player)) return 0;
+        return plugin().getJobService().getJobMaxExp(player, job);
     }
 
     /**
@@ -89,8 +85,8 @@ public final class JobAPI {
      * @param exp 경험치
      */
     public static void setJobExp(OfflinePlayer player, Jobs job, double exp) {
-        if (!jobService().hasJobData(player)) return;
-        jobService().setJobExp(player, job, exp);
+        if (!plugin().getJobService().hasJobData(player)) return;
+        plugin().getJobService().setJobExp(player, job, exp);
     }
 
     /**
@@ -100,8 +96,8 @@ public final class JobAPI {
      * @param amount 추가량
      */
     public static void addJobExp(OfflinePlayer player, Jobs job, double amount) {
-        if (!jobService().hasJobData(player)) return;
-        jobService().addJobExp(player, job, amount);
+        if (!plugin().getJobService().hasJobData(player)) return;
+        plugin().getJobService().addJobExp(player, job, amount);
     }
 
     /**
@@ -111,7 +107,7 @@ public final class JobAPI {
      * @param amount 감소량
      */
     public static void subtractJobExp(OfflinePlayer player, Jobs job, double amount) {
-        if (!jobService().hasJobData(player)) return;
-        jobService().subtractJobExp(player, job, amount);
+        if (!plugin().getJobService().hasJobData(player)) return;
+        plugin().getJobService().subtractJobExp(player, job, amount);
     }
 }
