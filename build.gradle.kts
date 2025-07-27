@@ -31,7 +31,7 @@ dependencies {
   compileOnly("net.momirealms:custom-crops:3.6.40")
   compileOnly("net.momirealms:custom-fishing:2.3.12")
 
-  implementation(fileTree("libs") { include("*.jar") })
+  compileOnlyApi(fileTree("libs") { include("*.jar") })
 
   compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 }

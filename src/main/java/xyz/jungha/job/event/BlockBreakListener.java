@@ -29,7 +29,7 @@ public class BlockBreakListener implements Listener {
     public void onBlockBreak(BlockBreakEvent event) {
         String blockType = event.getBlock().getType().name();
         Double exp = minerExpMap.getOrDefault(blockType, 0.0);
-        if (exp != null) {
+        if (exp > 0) {
             jobService.addJobExp(event.getPlayer(), Jobs.MINER, exp);
         }
     }
