@@ -29,7 +29,7 @@ public class AddCommand extends LevelSubCommand {
     @Override
     protected boolean isValidAmount(double amount, CommandSender sender) {
         if (amount <= 0) {
-            sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <red>증가량은 1 이상이어야 합니다."));
+            sender.sendMessage(MINI_MESSAGE.deserialize(":red_ex: <#f9cccc>증가량은 <red>1 이상<#f9cccc>이어야 합니다."));
             return false;
         }
         return true;
@@ -42,6 +42,6 @@ public class AddCommand extends LevelSubCommand {
 
     @Override
     protected String getSuccessMessage(OfflinePlayer player, Jobs job, double amount) {
-        return String.format("[<gold>직업<white>] <green>%s</green>님의 <yellow>%s</yellow> 직업 레벨을 <gold>+%d</gold> 만큼 증가시켰습니다.", player.getName(), job.getDisplayName(), (int) amount);
+        return String.format(":green: <#d5f9cc>%s님의 <green>%s 직업 레벨<#d5f9cc>을 <green>+%d<#d5f9cc> 만큼 증가시켰습니다.", player.getName(), job.getDisplayName(), (int) amount);
     }
 }

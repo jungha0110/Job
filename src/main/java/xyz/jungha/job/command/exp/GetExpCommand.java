@@ -44,22 +44,12 @@ public class GetExpCommand implements SubCommand {
 
         OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
 
-        sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <green>" + player.getName() + "<white>님의 직업 경험치"));
+        sender.sendMessage(MINI_MESSAGE.deserialize(":blue_ex: <#9edaf4>" + player.getName() + "님의 직업 경험치"));
         Arrays.stream(Jobs.values())
                 .filter(job -> job != Jobs.NONE)
-                .map(job -> String.format("ㄴ <%s>%s <white>: %.2f / %.2f (레벨 %d)", getJobColor(job), job.getDisplayName(), jobService.getJobExp(player, job), jobService.getJobMaxExp(player, job), jobService.getJobLevel(player, job)))
+                .map(job -> String.format("ㄴ <#9edaf4>%s : <blue>%.2f <#9edaf4>/ <blue>%.2f <blue>(레벨 %d)", job.getDisplayName(), jobService.getJobExp(player, job), jobService.getJobMaxExp(player, job), jobService.getJobLevel(player, job)))
                 .forEach(message -> sender.sendMessage(MINI_MESSAGE.deserialize(message)));
         return true;
-    }
-
-    private String getJobColor(Jobs job) {
-        return switch (job) {
-            case MINER -> "gray";
-            case FARMER -> "green";
-            case FISHER -> "blue";
-            case CHEF -> "dark_gray";
-            default -> "white";
-        };
     }
 
     @Override

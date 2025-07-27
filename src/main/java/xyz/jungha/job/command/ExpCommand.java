@@ -50,7 +50,7 @@ public class ExpCommand implements SubCommand {
             return true;
         }
         if (!subCommand.hasPermission(sender)) {
-            sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <red>당신은 권한이 없습니다."));
+            sender.sendMessage(MINI_MESSAGE.deserialize(":red_ex: <#f9cccc>당신은 <red>권한이 없습니다."));
             return true;
         }
         return subCommand.execute(sender, Arrays.copyOfRange(args, 1, args.length));
@@ -73,9 +73,9 @@ public class ExpCommand implements SubCommand {
     }
 
     private void showHelp(CommandSender sender, String parentCommand, Map<String, SubCommand> commands) {
-        sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] " + parentCommand + " 도움말"));
+        sender.sendMessage(MINI_MESSAGE.deserialize(":blue_ex: <#9edaf4>" + parentCommand + " 도움말"));
         commands.values().stream()
                 .filter(sub -> sub.hasPermission(sender))
-                .forEach(sub -> sender.sendMessage("- /직업 " + parentCommand + " %s %s".formatted(sub.getName(), sub.getUsage())));
+                .forEach(sub -> sender.sendMessage("- <#9edaf4>/직업 " + parentCommand + " %s %s".formatted(sub.getName(), sub.getUsage())));
     }
 }

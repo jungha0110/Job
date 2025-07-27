@@ -43,6 +43,6 @@ public class SubtractExpCommand extends ExpSubCommand {
 
     @Override
     protected String getSuccessMessage(OfflinePlayer player, Jobs job, double amount) {
-        return String.format("[<gold>직업<white>] <green>%s</green>님의 <yellow>%s</yellow> 직업 경험치를 <gold>-%d</gold> 만큼 감소시켰습니다.", player.getName(), job.getDisplayName(), amount);
+        return String.format(":green_ex: <#d5f9cc>%s님의 <green>%s 직업 경험치<#d5f9cc>를 <green>-%d <#d5f9cc>만큼 감소시켰습니다.", player.getName(), job.getDisplayName(), amount);
     }
 }

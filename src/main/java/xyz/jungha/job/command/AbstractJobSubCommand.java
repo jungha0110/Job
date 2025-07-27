@@ -30,7 +30,7 @@ public abstract class AbstractJobSubCommand implements SubCommand {
 
         Jobs job = Jobs.fromDisplayName(args[1]);
         if (job == null || job == Jobs.NONE) {
-            sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <red>존재하지 않는 직업입니다."));
+            sender.sendMessage(MINI_MESSAGE.deserialize(":red_ex: <#f9cccc>존재하지 않는 <red>직업<#f9cccc>입니다."));
             return true;
         }
 
@@ -38,7 +38,7 @@ public abstract class AbstractJobSubCommand implements SubCommand {
         try {
             amount = Integer.parseInt(args[2]);
         } catch (NumberFormatException e) {
-            sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <red>유효한 숫자를 입력해주세요."));
+            sender.sendMessage(MINI_MESSAGE.deserialize(":red_ex: <#f9cccc>유효한 <red>숫자<#f9cccc>를 입력해주세요."));
             return true;
         }
 

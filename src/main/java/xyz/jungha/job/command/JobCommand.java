@@ -35,7 +35,7 @@ public class JobCommand implements TabExecutor {
         }
 
         if (!mainCommand.hasPermission(sender)) {
-            sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] <red>당신은 권한이 없습니다."));
+            sender.sendMessage(MINI_MESSAGE.deserialize(":red_ex: <#f9cccc>당신은 <red>권한이 없습니다."));
             return true;
         }
 
@@ -43,10 +43,10 @@ public class JobCommand implements TabExecutor {
     }
 
     private void showHelp(CommandSender sender, String label, Map<String, SubCommand> commands) {
-        sender.sendMessage(MINI_MESSAGE.deserialize("[<gold>직업<white>] 도움말"));
+        sender.sendMessage(MINI_MESSAGE.deserialize(":blue_ex: <#9edaf4>도움말"));
         commands.values().stream()
                 .filter(sub -> sub.hasPermission(sender))
-                .forEach(sub -> sender.sendMessage("- /직업 %s %s".formatted(sub.getName(), sub.getUsage())));
+                .forEach(sub -> sender.sendMessage("- <#9edaf4>/직업 %s %s".formatted(sub.getName(), sub.getUsage())));
     }
 
     @Override
