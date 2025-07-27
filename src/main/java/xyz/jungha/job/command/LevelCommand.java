@@ -73,9 +73,9 @@ public class LevelCommand implements SubCommand {
     }
 
     private void showHelp(CommandSender sender, String parentCommand, Map<String, SubCommand> commands) {
-        sender.sendMessage(MINI_MESSAGE.deserialize(":blue_ex: <#9edaf4>" + parentCommand + " 도움말"));
+        sender.sendMessage(MINI_MESSAGE.deserialize(":yellow_q: <yellow>" + parentCommand + " <#f5f9cc>도움말"));
         commands.values().stream()
                 .filter(sub -> sub.hasPermission(sender))
-                .forEach(sub -> sender.sendMessage("- <#9edaf4>/직업 " + parentCommand + " %s %s".formatted(sub.getName(), sub.getUsage())));
+                .forEach(sub -> sender.sendMessage("- <#f5f9cc>/직업 " + parentCommand + " %s %s".formatted(sub.getName(), sub.getUsage())));
     }
 }
