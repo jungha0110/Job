@@ -42,6 +42,6 @@ public class SetExpCommand extends ExpSubCommand {
 
     @Override
     protected String getSuccessMessage(OfflinePlayer player, Jobs job, double amount) {
-        return String.format(":green: <#d5f9cc>%s님의 <green>%s 직업 경험치<#d5f9cc>를 <green>%d<#d5f9cc>로 설정했습니다.", player.getName(), job.getDisplayName(), amount);
+        return String.format(":green: <#d5f9cc>%s님의 <green>%s 직업 경험치<#d5f9cc>를 <green>%f<#d5f9cc>로 설정했습니다.", player.getName(), job.getDisplayName(), amount);
     }
 }

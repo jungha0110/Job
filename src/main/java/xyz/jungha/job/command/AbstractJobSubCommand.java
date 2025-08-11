@@ -34,9 +34,9 @@ public abstract class AbstractJobSubCommand implements SubCommand {
             return true;
         }
 
-        int amount;
+        double amount;
         try {
-            amount = Integer.parseInt(args[2]);
+            amount = Double.parseDouble(args[2]);
         } catch (NumberFormatException e) {
             sender.sendMessage(MINI_MESSAGE.deserialize(":red_ex: <#f9cccc>유효한 <red>숫자<#f9cccc>를 입력해주세요."));
             return true;
