@@ -47,3 +47,8 @@ farmer-exp:
   addcrop_onion: 1
   addcrop_asparagus: 1
   addcrop_wild_ginseng: 1
+
+fisher-exp:
+  common: 5
+  silver_star: 10
+  golden_star: 20

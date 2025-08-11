@@ -33,8 +33,8 @@ public class Job extends JavaPlugin {
                 new PlayerJoinListener(jobService),
                 new CookCompleteListener(jobService),
                 new BlockBreakListener(jobService),
-                new CropBreakListener(jobService),
-                new FishingResultListener(jobService)
+                new CropListener(jobService),
+                new FishingListener(jobService)
         );
     }
 
